@@ -1,1 +1,0 @@
-<?php require_once './assets/views/article.php';?>

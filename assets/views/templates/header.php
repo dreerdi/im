@@ -54,8 +54,17 @@
             <ul class="nav nav-pills">
               <li><a href="index.php?dispatch=home">Главная</a></li>
               <li><a href="index.php?dispatch=catalogs">Каталог товаров</a></li>
-              <li><a href="index.php?dispatch=basket">Корзина</a></li>
-              <li><a href="index.php?dispatch=cabinet">Личный кабинет</a></li>
+              <li><a href="index.php?dispatch=basket">Корзина
+                <?php 
+                  if (isset($_SESSION['card']) ) {
+                    echo "<span class='badge'>".count($_SESSION['card'])."</span>";
+                  }
+                ?>
+                  
+                </a></li>
+              <li>
+                <? echo (($auth == 0 || $error == 1) ? ("<a href='index.php?dispatch=form_auth'>Авторизоваться</a>") : ("<a href='index.php?dispatch=cabinet'>Личный кабинет</a>" )) ?>                  
+              </li>
               <li><a href="index.php?dispatch=contacts">Контакты</a></li>
             </ul>
           </div>
@@ -65,3 +74,6 @@
 
       </div>
     </div>
+    <div class="wrapper">
+    
+      <div class="container">

@@ -145,6 +145,10 @@ table td, table th {
 	padding: 10px;
 }
 
+.table_lkzakaz tr {
+	vertical-align: middle;
+}
+
 .table_lkzakaz tr td:first-child {
 	text-align: center;
 }
@@ -162,6 +166,19 @@ table td, table th {
 .table_lkzakaz tr td:last-child {
 	letter-spacing: 1px;
 	font-style: italic;
+}
+
+.vertical-center {
+	vertical-align: middle;
+}
+
+.menuCategories {
+	text-decoration: none;
+}
+
+.btn-danger {
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
 .table_contact {
@@ -186,6 +203,18 @@ table td, table th {
 .sale {
 	text-decoration: line-through;
 }
+
+
+/* .up-count, .down-count {
+	border-radius: 5px;
+	border: 1px solid #000;
+	width: 15px;
+	text-align: center;
+}
+
+.up-count:hover, .down-count:hover {
+	background-color: grey;
+} */
 
 .films_block {
 	text-align: center;
@@ -239,9 +268,9 @@ table td, table th {
 	background-color: #f9f9f9;
 }
 
-.badge {
+/* .badge {
 	background-color: #000000;
-}
+} */
 
 .info-block {
 	font-size: 120%;
