@@ -21,6 +21,14 @@
 		    return $result; 
 		}  
 
+		public function getIdParent($parent_id) {
+			global $mysqli;
+		    $q = "SELECT * FROM `categories` WHERE `parent_id` = '$parent_id'";
+		    $query = mysqli_query($mysqli, $q);
+		    $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
+		    return $result; 
+		}
+
 		public function outTree($parent_id = 0, $level = 0) {
 		   global $category_arr;
 		    if ($level != 0) {
@@ -30,11 +38,12 @@
 		    }
 		    if (isset($category_arr[$parent_id])) { 
 		        if (isset($category_arr[$parent_id])) { 
-			        echo '<ul class="menuCategories menuCategories'.$level_up.$level.'">';
+			        echo '<ul>';
 			        foreach ($category_arr[$parent_id] as $value) {
-		           		echo "<li>". $value["name"]."</li>"; 
+		           		echo "<li><a href='index.php?dispatch=product&idCategory=". $value["category_id"]."'>". $value["name"]."</a>"; 
 		            	$level = $level + 1; 
 		            	$this->outTree($value["category_id"], $level); 
+		            	echo "</li>";
 		            	$level = $level - 1; 		        
 		        	} 
 		        	echo "</ul>";

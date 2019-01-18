@@ -1,9 +1,9 @@
 <div class="films_block col-lg-3 col-md-3 col-sm-3 col-xs-5">
-	<form action="index.php?dispatch=home&id=<?php echo $value['product_id']; ?>" method="POST">
+	<form action="index.php?dispatch=add_basket&handler=1&id=<?php echo $value['product_id']; ?>" method="POST">
 		<img src="assets/img/<?php echo $value['img']; ?>" alt="товар 1">
 		<div class="film_label"><?php echo $value['name']; ?></div>
 		<div class="row">
-		  <div class="col-lg-6 col-lg-push-3 col-md-4 col-md-push-1 col-sm-4 col-sm-push-1 col-xs-12">Цена:<?php echo $value['price']; ?></div>
+		  <div class="col-lg-12  col-md-12  col-sm-12  col-xs-12">Цена:<?php echo $value['price']; ?></div>
 		</div>
 		<div class="row">
 			<div class="col-lg-12">

@@ -1,11 +1,32 @@
 <div class="films_block col-lg-3 col-md-3 col-sm-3 col-xs-6">
-  <img src="assets/img/xfiles.png" alt="товар">
-  <div class="film_label">Описание товара</div>                  
-  <div class="row">
-    <span class="sale">Старая цена</span>Цена:
-  </div>
-  <div class="row">
-    <a href="#" class="col-lg-6 col-md-4 col-md-push-1 col-sm-4 col-sm-push-1 col-xs-12">в корзину</a>
-  </div>
-  <div>sale: 100%</div>
+	<form action="index.php?dispatch=add_basket&handler=1&id=<?php echo $value['product_id']; ?>" method="POST">
+		<img src="assets/img/<?php echo $value['img']; ?>" alt="товар 1">
+		<div class="film_label"><?php echo $value['name']; ?></div>
+		<div class="row">
+		  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		  	<span class="sale">Старая цена: <?php echo $value['price']; ?></span>
+		  </div>
+		</div>
+		<div class="row">
+		  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		  	Цена со скидкой: <?php echo $value['price'] - $value['price']*$value['sale_id']/100; ?>
+		  </div>
+		</div>
+		<div class="row">
+			  <div>sale: <?php echo $value['sale_id']; ?>%</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<a href="index.php?dispatch=product&id=<?php echo $value['product_id']; ?>">подробнее</a>
+			</div>
+		</div>
+		<div class="row">
+		  <button name="addBasketProduct" value="yes" class="col-lg-10 col-lg-push-1 col-md-10 col-md-push-1 col-sm-10 col-sm-push-1 col-xs-10 col-xs-push-1 btn btn-warning">в корзину</button>
+		</div>
+	</form>
+
+  
+
+  
+
 </div>

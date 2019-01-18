@@ -3,13 +3,13 @@
   <div class="col-lg-4">
 
     <h2>Каталог</h2>
-  
-    <?php 
+      <div class="menu-vertical">
+        <?php 
 
-      echo $categories->outTree();
+          echo $categories->outTree();
 
-    ?>
-
+        ?>
+      </div>
   </div>
   <div class="col-lg-8">
   	<div class="row">

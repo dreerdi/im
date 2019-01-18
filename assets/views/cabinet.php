@@ -7,15 +7,15 @@
     <table class="table_cabinet">
       <tr>
         <td>ФИО</td>
-        <td>Иванов Иван Иванович</td> 
+        <td><?php echo $user->getUser($login)['fio']; ?></td> 
       </tr>
       <tr>
         <td>Логин</td>
-        <td>user</td>       
+        <td><?php echo $user->getUser($login)['login']; ?></td>       
       </tr>
       <tr>
         <td>Пароль</td>
-        <td>123  <a href="#">Изменить пароль</a></td>       
+        <td><?php echo $user->getUser($login)['password']; ?><a href="#">Изменить пароль</a></td>       
       </tr>
     </table>
 

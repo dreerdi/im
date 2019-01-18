@@ -1,5 +1,5 @@
 <div class="row">
-  <form action="#" method="POST">
+  <form action="index.php?dispatch=add_basket_is_order&handler=1" method="POST">
     <div class="col-lg-8 col-lg-push-2">
 
       <h2>Корзина:</h2>
@@ -24,7 +24,7 @@
         
       </table>
 
-      <p>К оплате: <?php echo $_REQUEST['total_basket'];?> рублей</p>
+      <p>К оплате: <?php echo $_SESSION['total_basket'];?> рублей</p>
       <button type="submit" class="btn btn-warning" name="addBasketIsOrder" value="1">Оформить покупку</button>
 
       <div class="margin-8"></div>

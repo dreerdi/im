@@ -9,10 +9,8 @@
 
       <?php 
         
-        /*for($i = 0; $i < 4; $i++)*/
         foreach ($product as $key => $value) {
           require 'templates/best_offer.php';
-
         }
       ?>
 
@@ -20,12 +18,12 @@
 
     <div class="margin-8"></div>
 
-    <a href="index.php?dispatch=sale"><h2>Акция</h2></a>
+    <a href="index.php?dispatch=product&sale"><h2>Акция</h2></a>
     <hr>
 
     <div class="row">
       <?php 
-          for($i = 0; $i < 4; $i++) {
+          foreach ($products->getSalesProducts4() as $key => $value) {
             require 'templates/share.php';
           }
       ?>

@@ -11,24 +11,18 @@
         <th>Сумма заказа</th>
         <th>Статус исполнения заказа</th>
       </tr>
-      <tr>
-        <td>1</td>
-        <td>24.11.2018</td>
-        <td>245.00</td>
-        <td>Сборка товара</td> 
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>01.12.2018</td>
-        <td>245 154.00</td>
-        <td>Сборка товара</td>      
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>05.12.2018</td>
-        <td>156 478 125.00</td>
-        <td>Товар готов для получения</td>       
-      </tr>
+
+      <?php
+        foreach ($user->getOrdersUser($_SESSION['user_id']) as $key => $value) {
+          echo "<tr>
+                  <td><a href='index.php?dispatch=order&order_id=".$value['order_id']."'>".$value['order_id']."</a></td>
+                  <td>".$value['date']."</td>
+                  <td>".$value['total']."</td>
+                  <td>".$value['status_id']."</td>       
+                </tr>";
+        }
+      ?>
+
     </table>      
    
   </div>

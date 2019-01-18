@@ -50,10 +50,26 @@
             </button>
 
           </div>
+          <div class="collapse navbar-collapse navbar-left">
+            <div class="menu-vertical">
+              <ul class="nav nav-pills">
+                <li><a href="index.php?dispatch=catalogs">Каталог товаров</a>
+                
+                      <?php 
+
+                        echo $categories->outTree();
+
+                      ?>
+                  
+                </li>
+              </ul>
+            </div>
+          </div>
+
           <div id="navbarCollapse" class="collapse navbar-collapse navbar-right">
             <ul class="nav nav-pills">
               <li><a href="index.php?dispatch=home">Главная</a></li>
-              <li><a href="index.php?dispatch=catalogs">Каталог товаров</a></li>
+              <!-- <li><a href="index.php?dispatch=catalogs">Каталог товаров</a></li> -->
               <li><a href="index.php?dispatch=basket">Корзина
                 <?php 
                   if (isset($_SESSION['card']) ) {
@@ -63,9 +79,19 @@
                   
                 </a></li>
               <li>
-                <? echo (($auth == 0 || $error == 1) ? ("<a href='index.php?dispatch=form_auth'>Авторизоваться</a>") : ("<a href='index.php?dispatch=cabinet'>Личный кабинет</a>" )) ?>                  
+                <? echo (($login === 0 /*|| $error == 1*/) ? ("<a href='index.php?dispatch=form_auth'>Авторизоваться</a>") : ("<a href='index.php?dispatch=cabinet' class='inline-a'>Личный кабинет</a>" )); ?>                  
+              </li>
+              <li>
+                <? 
+                echo (($_SESSION['user_id'] > 0) ? ("<a href='index.php?dispatch=home&exit_user=1' class='inline-a'>(Выход)</a>" ) : ("")); 
+                ?>                  
               </li>
               <li><a href="index.php?dispatch=contacts">Контакты</a></li>
+              <li>
+                <? 
+                echo (($_SESSION['login'] === 'admin') ? ("<a href='index.php?dispatch=admin'>Админка</a>" ) : ("")); 
+                ?>                  
+              </li>
             </ul>
           </div>
         </div>

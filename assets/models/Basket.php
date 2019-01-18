@@ -16,16 +16,20 @@
 		/*если нажата кнопка "удалить", то удаляется товар, иначе проверяется уменьшение или увеличение кол-ва товара*/
 		public function getCountBasket($number, $flug) {
 			if ($flug == "delete_product_basket") {
+				$_SESSION['total_basket'] = $_SESSION['total_basket'] - $_SESSION['card'][$number]['total']*$_SESSION['card'][$number]['count'];
 				unset($_SESSION['card'][$number]);
 			} else {
 				if ($flug == "up_count") {
+					$_SESSION['total_basket'] = $_SESSION['total_basket'] - $_SESSION['card'][$number]['total'];
 					$_SESSION['card'][$number]['count'] = $_SESSION['card'][$number]['count'] - 1;
 				} elseif ($flug == "down_count") {
 					$_SESSION['card'][$number]['count'] = $_SESSION['card'][$number]['count'] + 1;
+					$_SESSION['total_basket'] = $_SESSION['total_basket'] + $_SESSION['card'][$number]['total'];
 				}			
 
 				$_SESSION['card'][$number]['total'] = $_SESSION['card'][$number]['count'] * $_SESSION['card'][$number]['price'];
 			}
+
 		}
 		/*подсчет общей суммы товара в корзине*/
 		public function getTotalBasket($array) {
@@ -33,7 +37,6 @@
 			$array = $_SESSION['card'];
 			foreach ($array as $key => $value) {
 				$total = $total + $_SESSION['card'][$value['№']-1]['total'];
-
 			}
 			return $total;
 		}
@@ -41,12 +44,14 @@
 		/*Добавление товара в заказы*/
 		public function setAddBasketIsOrder() {
 			global $mysqli;
-			(float) $total_basket = $_REQUEST['total_basket'];
-			$q = "INSERT INTO `orders` VALUES (NULL, 0, NOW(), '$total_basket', 1)";
+			(float) $total_basket = $_SESSION['total_basket'];
+			$user_id = $_SESSION['user_id'];
+
+			$q = "INSERT INTO `orders` VALUES (NULL, '$user_id', NOW(), '$total_basket', 1)";
 
 			$query = mysqli_query($mysqli, $q);
 
-			 $index = mysqli_insert_id($mysqli);
+			$index = mysqli_insert_id($mysqli);
 
 			for ($i = 0; $i < count($_SESSION['card']); $i++) {
 				$id = $_SESSION['card'][$i]['product_id'];
@@ -58,6 +63,7 @@
 				$q1 = "INSERT INTO `order_products` VALUES ('$index', '$id', '$count', '$price')";
 				$query = mysqli_query($mysqli, $q1);
 			}
+			return $index;
 
 		}
 
@@ -77,7 +83,7 @@
 			if ($coincidence == 0) {
 			$_SESSION['card'][$i]['№'] = $i + 1;
 			$_SESSION['card'][$i]['name_product'] = $result['name'];
-			$_SESSION['card'][$i]['price'] = $result['price'];
+			$_SESSION['card'][$i]['price'] = $result['price'] - $result['price']*$result['sale_id']/100;
 			$_SESSION['card'][$i]['count'] = 1;
 			$_SESSION['card'][$i]['total'] = $_SESSION['card'][$i]['price']*$_SESSION['card'][$i]['count'];
 			$_SESSION['card'][$i]['product_id'] = $result['product_id'];
