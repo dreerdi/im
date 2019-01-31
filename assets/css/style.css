@@ -34,6 +34,7 @@
 .navbar-inverse {
     padding: 1%;
     border-radius: 0;
+
 }
 
 @media (max-width: 767px) {
@@ -224,13 +225,21 @@ table td, table th {
 
 .films_block {
 	text-align: center;
+	margin: 0 1%;
+	border: 1px solid grey;
+	border-radius: 2%; 
+	width: 23%;
+	min-height: 350px;
+	max-height: 350px;
+	position: relative;
 }
 
 .films_block img {
-	margin-bottom: 5%;
+	margin: 10% auto;
 	border-radius: 5px;
 	border: solid 5px #dad7d5;
-	width: 100%;
+	max-height: 100px;
+	max-width: 90%;
 }
 
 .films_block div:first-child {
@@ -241,6 +250,13 @@ table td, table th {
 	min-height: 50px;
 	text-transform: uppercase;
 	text-align: center;
+}
+
+.btn-warning {
+	position: absolute;
+	bottom: 4%;
+	left: 10%;
+	min-width: 80%; 
 }
 
 /* .films_block div:nth-child(3) {
@@ -254,6 +270,26 @@ table td, table th {
 .film_label {
 	padding: 2%;
 	margin-bottom: 4%;
+	min-height: 25%;
+}
+
+.product{
+	margin: 0;
+	position: relative;
+	padding-left: 30%;
+}
+
+.product img {
+	position: absolute;
+	left: -95px;
+	top: 20px;
+}
+
+.product button {
+	position: relative;
+	min-width: 20%;
+	max-width: 30% !important;
+	margin-top: 2%;
 }
 
 .margin-8 {
@@ -276,7 +312,7 @@ table td, table th {
 
 .sidebar-header {
 	font-size: 120%;
-	letter-spacing: : 2px;
+	letter-spacing: 2px;
 }
 
 .form-control {
@@ -334,7 +370,7 @@ footer a:hover {
 /*вертикальное меню*/
 
 .menu-vertical {
-	width:100%;
+	width:200px;
 	height:auto;
 }
 
@@ -346,25 +382,24 @@ footer a:hover {
     padding:0px;
     list-style:none;
 }
-	l
+	
 .menu-vertical > ul > li  {
 	display:block; 
 	width:100%; 
 	height:auto; 
 	position:relative;
 }
+
 .menu-vertical > ul > li > a { 
 	position:relative;
 }
 
 .menu-vertical > ul > li a {
-    
     display:block;
     width:100%;
     height:auto;
     box-sizing:border-box;
     font-size:13px;
-    /* text-transform:uppercase; */
     font-weight:bold;
     color:#FBF7F7;
     line-height:1.2em;
@@ -384,7 +419,7 @@ footer a:hover {
 
 .menu-vertical > ul ul {
     position:absolute;
-    top:0;
+    top:10%;
     left:100%;
     display:none;
     width:100%;
@@ -417,3 +452,8 @@ footer a:hover {
 
 
 /*конец вертикального меню*/
+
+.error {
+	color: red;
+	font-size: 22px;
+}

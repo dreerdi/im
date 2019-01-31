@@ -17,6 +17,14 @@
 			$result = mysqli_fetch_all($query, MYSQLI_ASSOC);
 			return $result;
 		}	
+
+		public function getUserId($user_id) {
+			global $mysqli;
+			$q = "SELECT `login`,`fio` FROM `users` WHERE `user_id` = '$user_id'";
+			$query = mysqli_query($mysqli, $q);
+			$result = mysqli_fetch_assoc($query);
+			return $result;
+		}
 	}
 
 ?>

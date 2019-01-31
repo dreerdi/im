@@ -10,9 +10,15 @@
 	if(isset($_REQUEST['auth'])) {
 		require_once 'assets/models/User.php';
 		$user = new User;
-		if($user->getUser($_REQUEST['exampleInputLogin1'])[login] != NULL) {
-			$_SESSION['login'] = $user->getUser($_REQUEST['exampleInputLogin1'])[login];
-			$_SESSION['user_id'] = $user->getUser($_REQUEST['exampleInputLogin1'])[user_id];
+		if($user->getUser($_REQUEST['exampleInputLogin1'])['login'] != NULL) {
+			if ($user->getUser($_REQUEST['exampleInputLogin1'])['password'] === $_REQUEST['exampleInputPassword1']) {
+				$_SESSION['login'] = $user->getUser($_REQUEST['exampleInputLogin1'])['login'];
+				$_SESSION['user_id'] = $user->getUser($_REQUEST['exampleInputLogin1'])['user_id'];
+			} else {
+				header("Location: ..\index.php?dispatch=form_auth&auth-error=password");
+			}
+		} else {
+			header("Location: ..\index.php?dispatch=form_auth&auth-error=login");
 		}
 	}
 

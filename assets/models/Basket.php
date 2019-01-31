@@ -18,6 +18,7 @@
 			if ($flug == "delete_product_basket") {
 				$_SESSION['total_basket'] = $_SESSION['total_basket'] - $_SESSION['card'][$number]['total']*$_SESSION['card'][$number]['count'];
 				unset($_SESSION['card'][$number]);
+				unset($_SESSION['card_product_id'][$number]);
 			} else {
 				if ($flug == "up_count") {
 					$_SESSION['total_basket'] = $_SESSION['total_basket'] - $_SESSION['card'][$number]['total'];

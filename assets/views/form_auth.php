@@ -1,4 +1,9 @@
-<div class="row">
+<div class="row text-center">
+	<div class="col-lg-6 col-lg-push-3">
+		<p class="error"><?php if ($error != '') {echo $error;}?></p>
+	</div>
+</div>
+<div class="row">	
 	<div class="col-lg-6 col-lg-push-3 ">
 		<form action="index.php" method="POST">
 			<div class="form-group">

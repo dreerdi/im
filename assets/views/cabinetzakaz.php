@@ -4,7 +4,7 @@
     
     <h3><a href="index.php?dispatch=cabinet">Личный кабинет покупателя</a>&nbsp&nbsp&nbsp&nbsp&nbspЛичный кабинет - заказы</h3>
 
-    <table class="table_lkzakaz">
+    <table class="table table-striped">
       <tr>
         <th>№ заказа</th>
         <th>Дата оформления заказа</th> 

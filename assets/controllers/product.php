@@ -4,9 +4,9 @@
 
 	$products = new Products;
 	if (isset($_REQUEST['id'])) {
-		$idProduct = $products->getIdProduct($_REQUEST['id']);
-	}
+		$value = $products->getIdProduct($_REQUEST['id']);
 	
+	}
 
 	if ($_REQUEST['addBasketProduct'] == 'yes') {
 		require_once './assets/models/Basket.php';

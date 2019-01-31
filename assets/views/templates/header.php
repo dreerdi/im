@@ -31,9 +31,9 @@
               
               <div class="row">
                 
-                <div class="col-lg-12">                  
-                  <h1><a href="#">ЛесОк - Изделия из дерева</a></h1>
-                  <p>Ближе к природе!</p>
+                <div class="col-lg-12 text-center">                  
+                  <h1><a href="index.php?dispatch=home">Электроника</a></h1>
+                  <p></p>
                 </div>
 
               </div>
@@ -51,7 +51,8 @@
 
           </div>
           <div class="collapse navbar-collapse navbar-left">
-            <div class="menu-vertical">
+            
+          <div class="menu-vertical">
               <ul class="nav nav-pills">
                 <li><a href="index.php?dispatch=catalogs">Каталог товаров</a>
                 
@@ -89,7 +90,7 @@
               <li><a href="index.php?dispatch=contacts">Контакты</a></li>
               <li>
                 <? 
-                echo (($_SESSION['login'] === 'admin') ? ("<a href='index.php?dispatch=admin'>Админка</a>" ) : ("")); 
+                echo (($_SESSION['login'] === 'admin') ? ("<a href='assets/admin/index.php'>Админка</a>" ) : ("")); 
                 ?>                  
               </li>
             </ul>

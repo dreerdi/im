@@ -46,8 +46,13 @@
 	
 /*	echo "<pre>";
 	var_dump($_SESSION);
-	echo "</pre>";
-	echo "<pre>";
+	echo "</pre>";*/
+	if (isset($_SESSION['card'])) {
+		foreach ($_SESSION['card'] as $key => $value) {
+		$_SESSION['card_product_id'][$key] = $_SESSION['card'][$key]['product_id'];
+		}
+	}
+/*	echo "<pre>";
 	var_dump($_REQUEST);
 	echo "</pre>";*/
 ?>

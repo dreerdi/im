@@ -46,6 +46,10 @@ class Products
 		$result = mysqli_fetch_assoc($query);
 		return $result;
 	}
+	/*проверка корзины на наличие товара*/
+	public function getProductBasket() {
+		
+	}
 }
 
 ?>
